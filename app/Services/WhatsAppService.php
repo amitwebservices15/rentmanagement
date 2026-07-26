@@ -179,52 +179,6 @@ class WhatsAppService
     }
 
     
-    /* {
-        $month = \Carbon\Carbon::createFromFormat('Y-m', $rentRecord->month)->format('F Y');
-        $dueDate = $rentRecord->due_date ? $rentRecord->due_date->format('d M Y') : 'Not specified';
-        $rentAmount = number_format($rentRecord->rent_amount, 0);
-        $electricityCharge = number_format($rentRecord->electricity_charge, 0);
-        $otherCharges = number_format($rentRecord->other_charges, 0);
-        $totalAmount = number_format($rentRecord->total_amount, 0);
-        
-        $message = "🧾 *RENT SLIP - {$month}*\n\n";
-        $message .= "Dear {$tenant->name},\n\n";
-        $message .= "Your rent bill has been generated:\n\n";
-        $message .= "🏢 *Property:* {$rentRecord->room->property->name}\n";
-        $message .= "🚪 *Room:* {$rentRecord->room->room_number}\n";
-        $message .= "📅 *Month:* {$month}\n";
-        $message .= "📆 *Due Date:* {$dueDate}\n\n";
-        
-        $message .= "💰 *BILL BREAKDOWN:*\n";
-        $message .= "• Rent: ₹{$rentAmount}\n";
-        
-        if ($rentRecord->electricity_charge > 0) {
-            $message .= "• Electricity: ₹{$electricityCharge}";
-            if ($rentRecord->electricity_units > 0) {
-                $message .= " ({$rentRecord->electricity_units} units)";
-            }
-            $message .= "\n";
-        }
-        
-        if ($rentRecord->other_charges > 0) {
-            $message .= "• Other Charges: ₹{$otherCharges}\n";
-        }
-        
-        if ($rentRecord->previous_due > 0) {
-            $message .= "• Previous Due: ₹" . number_format($rentRecord->previous_due, 0) . "\n";
-        }
-        
-        if ($rentRecord->advance_amount > 0) {
-            $message .= "• Advance Adjusted: -₹" . number_format($rentRecord->advance_amount, 0) . "\n";
-        }
-        
-        $message .= "\n*TOTAL AMOUNT: ₹{$totalAmount}*\n\n";
-        $message .= "Please make the payment by the due date.\n\n";
-        $message .= "Thank you!\n";
-        $message .= "Property Management";
-        
-        return $message;
-    } */
 
     private function sendWhatsAppMessage(string $phoneNumber, string $message)
     {
